@@ -58,9 +58,19 @@ export default function PageLayout({ children }: { children: React.ReactNode }) 
                                 color: "rgba(255,255,255,0.5)",
                                 lineHeight: 1.7,
                                 maxWidth: "280px",
+                                marginBottom: "16px",
                             }}
                         >
                             The community platform for bold thinkers, builders, and dreamers shaping what comes next.
+                        </p>
+                        <p
+                            style={{
+                                fontSize: "13px",
+                                fontWeight: 600,
+                                color: "rgba(255,255,255,0.8)",
+                            }}
+                        >
+                            <span style={{ color: "#e5251a" }}>✦</span> Founded by Ashish
                         </p>
                     </div>
 
