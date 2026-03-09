@@ -208,7 +208,7 @@ export default function PageLayout({ children }: { children: React.ReactNode }) 
                             { icon: <Twitter size={16} />, href: "#" },
                             { icon: <Github size={16} />, href: "#" },
                             { icon: <Linkedin size={16} />, href: "#" },
-                            { icon: <Instagram size={16} />, href: "#" },
+                            { icon: <Instagram size={16} />, href: "https://www.instagram.com/vibe_.ignite?igsh=cnM0bmNxcjNvdm9t" },
                         ].map((social, i) => (
                             <a
                                 key={i}
