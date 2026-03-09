@@ -63,15 +63,16 @@ export default function PageLayout({ children }: { children: React.ReactNode }) 
                         >
                             The community platform for bold thinkers, builders, and dreamers shaping what comes next.
                         </p>
-                        <p
-                            style={{
-                                fontSize: "13px",
-                                fontWeight: 600,
-                                color: "rgba(255,255,255,0.8)",
-                            }}
+                        <a
+                            href="https://www.instagram.com/vibe_.ignite?igsh=cnM0bmNxcjNvdm9t"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ fontSize: "13px", fontWeight: 600, color: "rgba(255,255,255,0.8)", textDecoration: "none", display: "inline-block" }}
+                            onMouseEnter={(e) => (e.currentTarget.style.color = "#e5251a")}
+                            onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.8)")}
                         >
                             <span style={{ color: "#e5251a" }}>✦</span> Founded by Ashish N
-                        </p>
+                        </a>
                     </div>
 
                     {/* Platform */}
@@ -213,6 +214,8 @@ export default function PageLayout({ children }: { children: React.ReactNode }) 
                             <a
                                 key={i}
                                 href={social.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 style={{
                                     display: "flex",
                                     alignItems: "center",

@@ -13,9 +13,16 @@ export default function Footer() {
                     <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.5)", lineHeight: 1.7, maxWidth: "280px", marginBottom: "16px" }}>
                         The community platform for bold thinkers, builders, and dreamers shaping what comes next.
                     </p>
-                    <p style={{ fontSize: "13px", fontWeight: 600, color: "rgba(255,255,255,0.8)" }}>
+                    <a
+                        href="https://www.instagram.com/vibe_.ignite?igsh=cnM0bmNxcjNvdm9t"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ fontSize: "13px", fontWeight: 600, color: "rgba(255,255,255,0.8)", textDecoration: "none", display: "inline-block" }}
+                        onMouseEnter={(e) => (e.currentTarget.style.color = "#e5251a")}
+                        onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.8)")}
+                    >
                         <span style={{ color: "#e5251a" }}>✦</span> Founded by Ashish N
-                    </p>
+                    </a>
                 </div>
                 <div>
                     <h4 style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)", marginBottom: "16px" }}>Platform</h4>
@@ -67,7 +74,7 @@ export default function Footer() {
                         { icon: <Linkedin size={16} />, href: "#" },
                         { icon: <Instagram size={16} />, href: "https://www.instagram.com/vibe_.ignite?igsh=cnM0bmNxcjNvdm9t" }
                     ].map((social, i) => (
-                        <a key={i} href={social.href} style={{ display: "flex", alignItems: "center", justifyContent: "center", width: 36, height: 36, borderRadius: "50%", border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.5)", textDecoration: "none", transition: "all 0.2s" }}
+                        <a key={i} href={social.href} target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", justifyContent: "center", width: 36, height: 36, borderRadius: "50%", border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.5)", textDecoration: "none", transition: "all 0.2s" }}
                             onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#e5251a"; e.currentTarget.style.color = "#e5251a"; e.currentTarget.style.background = "rgba(229,37,26,0.1)"; }}
                             onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)"; e.currentTarget.style.color = "rgba(255,255,255,0.5)"; e.currentTarget.style.background = "transparent"; }}
                         >{social.icon}</a>
