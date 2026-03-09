@@ -78,6 +78,33 @@ export default function Hero({ onOpenForm }: { onOpenForm?: () => void }) {
 
             {/* Content */}
             <div style={{ position: "relative", zIndex: 2, maxWidth: "900px" }}>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: 0.2 }}
+                    style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "10px",
+                        marginBottom: "24px",
+                    }}
+                >
+                    <div style={{
+                        width: "32px",
+                        height: "1px",
+                        background: "rgba(255,255,255,0.2)",
+                    }} />
+                    <span style={{
+                        fontFamily: "'Barlow', sans-serif",
+                        fontSize: "13px",
+                        fontWeight: 600,
+                        color: "rgba(255,255,255,0.9)",
+                        letterSpacing: "0.05em",
+                    }}>
+                        Founder <span style={{ color: "#e5251a" }}>Ashish N</span>
+                    </span>
+                </motion.div>
+
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
