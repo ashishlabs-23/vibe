@@ -70,7 +70,7 @@ export default function PageLayout({ children }: { children: React.ReactNode }) 
                                 color: "rgba(255,255,255,0.8)",
                             }}
                         >
-                            <span style={{ color: "#e5251a" }}>✦</span> Founded by Ashish
+                            <span style={{ color: "#e5251a" }}>✦</span> Founded by Ashish N
                         </p>
                     </div>
 
