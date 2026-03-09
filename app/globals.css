@@ -1,0 +1,454 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@400;600;700;800;900&display=swap');
+
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --black: #111111;
+    --near-black: #1a1a1a;
+    --card-bg: #f5f5f5;
+    --border: rgba(0, 0, 0, 0.1);
+    --white: #ffffff;
+    --off-white: #f5f5f5;
+    --muted: #757575;
+    --red: #e5251a;
+    --red-dark: #c0392b;
+    --glow: rgba(229, 37, 26, 0.12);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--white);
+    color: var(--black);
+    font-family: 'Barlow', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Hide cursor on desktop for custom cursor */
+  @media (min-width: 1024px) {
+
+    *,
+    body,
+    a,
+    button,
+    [role="button"],
+    input,
+    select,
+    textarea {
+      cursor: none !important;
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Barlow Condensed', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+}
+
+/* ─── NIKE UTILITY CLASSES ─── */
+
+.nike-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Barlow', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+  text-decoration: none;
+}
+
+.nike-btn-primary:hover {
+  background: var(--near-black);
+  transform: translateY(-1px);
+}
+
+.nike-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--black);
+  font-family: 'Barlow', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 13px 32px;
+  border-radius: 40px;
+  border: 1.5px solid var(--black);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.nike-btn-secondary:hover {
+  background: var(--black);
+  color: var(--white);
+}
+
+.nike-btn-red {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--red);
+  color: var(--white);
+  font-family: 'Barlow', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+  text-decoration: none;
+}
+
+.nike-btn-red:hover {
+  background: var(--red-dark);
+  transform: translateY(-1px);
+}
+
+/* ─── CARD STYLES ─── */
+.idea-card {
+  background: var(--off-white);
+  border-radius: 16px;
+  border: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.idea-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* ─── HIGHLIGHT TEXT ─── */
+.text-highlight {
+  color: var(--red);
+}
+
+/* ─── CATEGORY BADGE ─── */
+.category-badge {
+  display: inline-block;
+  background: var(--black);
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+/* ─── SECTION DIVIDER ─── */
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
+
+/* ─── NAVBAR ─── */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: white;
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-logo {
+  font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: var(--black);
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links a {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--black);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.navbar-links a:hover {
+  color: var(--red);
+}
+
+/* ─── HERO ─── */
+.hero-section {
+  background: var(--black);
+  color: var(--white);
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-eyebrow {
+  font-family: 'Barlow', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 16px;
+}
+
+.hero-title {
+  font-family: 'Barlow Condensed', 'Helvetica Neue', sans-serif;
+  font-size: clamp(64px, 10vw, 140px);
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 28px;
+}
+
+.hero-subtitle {
+  font-size: 17px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 440px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+/* ─── SECTION TITLES ─── */
+.section-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+/* ─── STATEMENT SECTION ─── */
+.statement-section {
+  background: var(--white);
+  color: var(--black);
+}
+
+.statement-text {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(36px, 5.5vw, 80px);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+/* ─── FOOTER ─── */
+.nike-footer {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  padding: 40px;
+}
+
+.footer-logo {
+  font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: var(--black);
+}
+
+.footer-tagline {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.footer-text {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--off-white);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+/* ─── SPARK BUTTON ─── */
+.spark-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 7px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--black);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.spark-btn:hover {
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--black);
+}
+
+/* ─── ANNOUNCEMENT BAR (like Nike) ─── */
+.announcement-bar {
+  background: var(--off-white);
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--black);
+  border-bottom: 1px solid var(--border);
+}
+
+/* ─── GRID CARDS ─── */
+.ideas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+/* ─── FORM STYLES ─── */
+.nike-input {
+  width: 100%;
+  background: var(--off-white);
+  border: 1.5px solid transparent;
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 15px;
+  color: var(--black);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.nike-input:focus {
+  border-color: var(--black);
+  background: var(--white);
+}
+
+.nike-input::placeholder {
+  color: var(--muted);
+}
+
+/* ─── RESPONSIVE NAV ─── */
+.nav-hamburger {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .nav-desktop-links {
+    display: none !important;
+  }
+
+  .nav-desktop-auth {
+    display: none !important;
+  }
+
+  .nav-hamburger {
+    display: flex !important;
+  }
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .hero-title {
+    font-size: clamp(52px, 12vw, 80px);
+  }
+
+  .statement-text {
+    font-size: clamp(28px, 8vw, 52px);
+  }
+
+  .ideas-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+}
