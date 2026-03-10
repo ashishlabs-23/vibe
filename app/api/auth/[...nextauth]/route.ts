@@ -19,11 +19,6 @@ export const authOptions: NextAuthOptions = {
         signIn: '/',
     },
     providers: [
-        GoogleProvider({
-            clientId: process.env.GOOGLE_CLIENT_ID || "dummy_id",
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET || "dummy_secret",
-            allowDangerousEmailAccountLinking: true,
-        }),
         CredentialsProvider({
             name: "credentials",
             credentials: {
