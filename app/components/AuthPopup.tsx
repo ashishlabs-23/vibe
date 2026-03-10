@@ -18,11 +18,46 @@ export default function AuthPopup({
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // For now, fall back to Google sign-in
-        signIn("google");
+        setError("");
+        setLoading(true);
+
+        try {
+            if (mode === "signup") {
+                const res = await fetch("/api/auth/register", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ name, email, password }),
+                });
+
+                if (!res.ok) {
+                    const data = await res.json();
+                    throw new Error(data.message || "Failed to register");
+                }
+            }
+
+            const result = await signIn("credentials", {
+                redirect: false,
+                email,
+                password,
+            });
+
+            if (result?.error) {
+                throw new Error("Invalid email or password");
+            }
+
+            onClose();
+            // Optional: You could force a reload here if the session doesn't immediately reflect
+            // window.location.reload();
+        } catch (err: any) {
+            setError(err.message);
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -139,6 +174,13 @@ export default function AuthPopup({
                                 </button>
                             ))}
                         </div>
+
+                        {/* Error Message */}
+                        {error && (
+                            <div style={{ color: "#e5251a", fontSize: "13px", marginBottom: "16px", textAlign: "center", fontWeight: 600 }}>
+                                {error}
+                            </div>
+                        )}
 
                         {/* Form */}
                         <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
@@ -263,9 +305,10 @@ export default function AuthPopup({
 
                             <button
                                 type="submit"
+                                disabled={loading}
                                 style={{
                                     marginTop: "4px",
-                                    background: "#111",
+                                    background: loading ? "#999" : "#111",
                                     color: "#fff",
                                     border: "none",
                                     borderRadius: "40px",
@@ -274,7 +317,7 @@ export default function AuthPopup({
                                     fontWeight: 700,
                                     letterSpacing: "0.08em",
                                     textTransform: "uppercase",
-                                    cursor: "pointer",
+                                    cursor: loading ? "not-allowed" : "pointer",
                                     fontFamily: "'Barlow', sans-serif",
                                     display: "flex",
                                     alignItems: "center",
@@ -282,11 +325,11 @@ export default function AuthPopup({
                                     gap: "8px",
                                     transition: "background 0.2s",
                                 }}
-                                onMouseEnter={(e) => (e.currentTarget.style.background = "#e5251a")}
-                                onMouseLeave={(e) => (e.currentTarget.style.background = "#111")}
+                                onMouseEnter={(e) => { if (!loading) e.currentTarget.style.background = "#e5251a"; }}
+                                onMouseLeave={(e) => { if (!loading) e.currentTarget.style.background = "#111"; }}
                             >
-                                {mode === "signin" ? "Sign In" : "Create Account"}
-                                <ArrowRight size={15} />
+                                {loading ? "Please wait..." : (mode === "signin" ? "Sign In" : "Create Account")}
+                                {!loading && <ArrowRight size={15} />}
                             </button>
                         </form>
 
