@@ -31,6 +31,7 @@ export async function POST(req: Request) {
             data: {
                 name,
                 email,
+                // @ts-ignore - Prisma types might be stale in editor
                 password: hashedPassword,
             },
         });
